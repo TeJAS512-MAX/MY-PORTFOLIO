@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  --color-midnight: #0B1020;
+  --color-secondary-navy: #111A33;
+  --color-ice-blue: #9EDBFF;
+  --color-periwinkle: #A9A7F8;
+  --color-muted-lavender: #C9B8F4;
+  --color-soft-mint: #8FE3CB;
+  --color-frost-text: #F3F6FC;
+  --color-frost-secondary: #B7C1D6;
+}
+
+:root {
+  color-scheme: dark;
+  --bg-primary: #0B1020;
+  --bg-secondary: #111A33;
+  --glass-bg: rgba(218, 231, 255, 0.08);
+  --glass-bg-hover: rgba(218, 231, 255, 0.13);
+  --glass-border: rgba(211, 227, 255, 0.18);
+  --glass-highlight: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: #F3F6FC;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #F3F6FC;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+::selection {
+  background-color: rgba(158, 219, 255, 0.24);
+  color: #F3F6FC;
+}
+
+/* Accessible skip link */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background-color: #111A33;
+  color: #9EDBFF;
+  border: 1px solid rgba(158, 219, 255, 0.5);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: top 160ms ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #9EDBFF;
+  outline-offset: 2px;
+}
+
+/* Midnight Frosted Glass Material — multi-stop crystal depth + specular rim bevel */
+.glass-panel {
+  background: linear-gradient(
+    140deg,
+    rgba(218, 231, 255, 0.12) 0%,
+    rgba(158, 219, 255, 0.05) 36%,
+    rgba(17, 26, 51, 0.56) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(211, 227, 255, 0.22);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1px 0 0 rgba(243, 246, 252, 0.24),
+    inset 1px 0 0 0 rgba(158, 219, 255, 0.14),
+    0 18px 46px rgba(4, 8, 22, 0.42);
+}
+
+.glass-button {
+  background: linear-gradient(
+    135deg,
+    rgba(218, 231, 255, 0.14) 0%,
+    rgba(158, 219, 255, 0.06) 55%,
+    rgba(169, 167, 248, 0.08) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(211, 227, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 0 rgba(243, 246, 252, 0.22),
+    0 10px 28px rgba(4, 8, 22, 0.28);
+}
+
+.glass-button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(158, 219, 255, 0.2) 0%,
+    rgba(169, 167, 248, 0.12) 100%
+  );
+  border-color: rgba(158, 219, 255, 0.68);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+    0 12px 34px rgba(158, 219, 255, 0.22);
+}
+
+@media (min-width: 768px) {
+  .glass-panel {
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+  }
+}
+
+.text-frost-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #eaf4ff 52%, #b9c9f8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle architectural grid hairline */
+.editorial-grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(211, 227, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(211, 227, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1020;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(183, 193, 214, 0.22);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(158, 219, 255, 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
